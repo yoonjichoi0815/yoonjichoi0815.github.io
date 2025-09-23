@@ -1,0 +1,112 @@
+<!-- project-titanic.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Data Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 공통 헤더 (index.html과 동일하게 복사) -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Yoonji's Portfolio</h1>
+            <nav class="navbar">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#skill" class="nav-button">Skills</a>
+                <a href="index.html#projects" class="nav-button">Projects</a>
+                <a href="index.html#experience" class="nav-button">Experience</a>
+                <a href="index.html#contact" class="nav-button">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 프로젝트 상세 내용 -->
+    <section class="project-detail">
+        <h2>Titanic Survival Data Analysis</h2>
+
+        <p><strong>Term:</strong> April, 2025 - May, 2025 (CSE 351 Project)</p>
+        <p><strong>Dataset:</strong> Titanic Dataset from Kaggle (<code>train.csv</code> and <code>test.csv</code>)</p>
+        <p><strong>Tools & Libraries:</strong> Python (Pandas, Numpy, Scikit-Learn, Matplotlib, Seaborn), Jupyter
+            Notebook</p>
+
+        <h3>🎯 Objective</h3>
+        <p>Predict Titanic passenger survival using machine learning and analyze key factors influencing survival.</p>
+
+        <h3>📈 Analysis Process</h3>
+
+        <h4>🔹 Data Preprocessing</h4>
+        <ul>
+            <li>Checked and handled missing values for <code>Age</code>, <code>Embarked</code>, and <code>Fare</code>.
+            </li>
+            <li>Created new features:
+                <ul>
+                    <li><code>FamilySize</code> = <code>SibSp</code> + <code>Parch</code> + 1</li>
+                    <li><code>AgeGroup</code> to analyze survival by age ranges.</li>
+                    <li><code>LogFare</code> to handle right-skewed <code>Fare</code> values using log transformation.
+                    </li>
+                </ul>
+            </li>
+            <li>Dropped unnecessary columns: <code>PassengerId</code>, <code>Name</code>, <code>Ticket</code>,
+                <code>Cabin</code>, <code>AgeGroup</code>.
+            </li>
+            <li>Converted categorical variables:
+                <ul>
+                    <li><code>Sex</code> → 0 (male), 1 (female)</li>
+                    <li>One-hot encoding for <code>Embarked</code>.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>🔹 Exploratory Data Analysis (EDA)</h4>
+        <ul>
+            <li>Analyzed survival rates by Sex, Pclass, Age, FamilySize, and Embarked Port.</li>
+            <li>Visualized variable relationships using bar plots, histograms, and heatmaps.</li>
+            <li><strong>Key Insights:</strong>
+                <ul>
+                    <li>Women and 1st class passengers had the highest survival rates.</li>
+                    <li>Younger children (0-10) had a survival rate over 61%, while no one aged 71-80 survived.</li>
+                    <li>Passengers who embarked from Cherbourg had the highest survival rates.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>🔹 Modeling</h4>
+        <ul>
+            <li>Built and evaluated three models:
+                <ul>
+                    <li>Logistic Regression</li>
+                    <li>Random Forest</li>
+                    <li>XGBoost</li>
+                </ul>
+            </li>
+            <li>Used metrics: Accuracy, Precision, Recall, F1-Score, and Cross-Validation.</li>
+            <li><strong>Best Model:</strong> Random Forest achieved the highest accuracy (84%) and best balance between
+                precision and recall.</li>
+        </ul>
+
+        <h4>🔹 Prediction</h4>
+        <ul>
+            <li>Applied the trained model to <code>test.csv</code> for final predictions.</li>
+            <li>Handled missing <code>Fare</code> values using median values by <code>Pclass</code>.</li>
+            <li>Saved results in a CSV file including <code>PassengerId</code> and predicted <code>Survived</code>
+                status.</li>
+        </ul>
+
+        <h3>💡 Insight</h3>
+        <ul>
+            <li>Importance of handling missing data and skewed distributions for better model performance.</li>
+            <li>Exploratory analysis revealed strong survival influences from gender, socioeconomic class, and age.</li>
+            <li>Random Forest provided the most reliable predictions across multiple evaluation metrics (84% accuracy).
+            </li>
+        </ul>
+
+        <h3>🙋‍♀️ My Contribution</h3>
+        <p>Handled the entire process from preprocessing to modeling independently.</p>
+    </section>
+</body>
+
+</html>
