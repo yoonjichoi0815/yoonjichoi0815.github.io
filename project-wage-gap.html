@@ -1,0 +1,151 @@
+<!-- project-wage-gap.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wage Gap Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 공통 헤더 (index.html과 동일하게 복사) -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Yoonji's Portfolio</h1>
+            <nav class="navbar">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#skill" class="nav-button">Skills</a>
+                <a href="index.html#projects" class="nav-button">Projects</a>
+                <a href="index.html#experience" class="nav-button">Experience</a>
+                <a href="index.html#contact" class="nav-button">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-detail">
+        <h2>Wage Gap Analysis: Minimum vs. Living Wage</h2>
+
+        <p><strong>Term:</strong> April, 2025 - May, 2025 (AMS 325 Group Project)</p>
+        <p><strong>Team Members:</strong> Rix Chisholm, Yoonji Choi (Myself), Gyujeong Park</p>
+        <p><strong>Tools & Libraries:</strong> Python (pandas, matplotlib, seaborn, scikit-learn, scipy), Jupyter
+            Notebook, Google
+            Colab</p>
+
+        <h3>🎯 Objective</h3>
+        <p>To analyze the discrepancy between minimum wage and living wage across 50 U.S. states, and explore how this
+            gap relates
+            to the cost of living and welfare participation. We aimed to discover hidden patterns of economic
+            vulnerability using
+            clustering and statistical analysis.</p>
+
+        <h3>❓ Key Research Questions</h3>
+        <p>1. How large is the wage gap in each state?</p>
+        <p>2. Which states are most economically burdened by that gap?</p>
+        <p>3. Is there a correlation between wage gap, cost of living, and SNAP participation?</p>
+        <p>4. How can we categorize states by economic vulnerability using clustering?</p>
+
+        <h3>📈 Analysis Process</h3>
+
+        <h4>🔹 Data Preprocessing</h4>
+        <ul>
+            <li>Standardized datasets from multiple sources and merged them using <code>pandas</code></li>
+            <li>Handled missing values and ensured consistent formatting for all states</li>
+            <li>Calculated key indicators:
+                <ul>
+                    <li><strong>Wage Gap</strong> = Living Wage – Minimum Wage</li>
+                    <li><strong>Living Wage Affordability Index (LWAI)</strong> = Minimum Wage / Living Wage</li>
+                    <li><strong>SNAP Participation Rate</strong> based on population and households</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>🔹 Exploratory Data Analysis (EDA)</h4>
+        <ul>
+            <li>Visualized wage gaps and affordability index using <code>matplotlib</code> and <code>seaborn</code></li>
+            <li>Ranked states by affordability and highlighted top/bottom performers</li>
+            <li>Created <strong>threshold brackets (50%, 60%, 70%, 80%)</strong> for LWAI and mapped how many states
+                fall
+                below each level</li>
+            <li>Performed <strong>Linear Regression</strong> between Cost of Living Index (COLI) and Living Wage</li>
+            <li>Conducted <strong>T-Tests</strong> to assess whether SNAP participation differs between high vs. low
+                COLI
+                states
+                <ul>
+                    <li>Result: No statistically significant difference (p &gt; 0.05)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>🔹 Clustering Analysis</h4>
+        <ul>
+            <li>Used <strong>K-Means Clustering</strong> to categorize states based on:
+                <ul>
+                    <li>Cost of Living Index (COLI)</li>
+                    <li>Living Wage</li>
+                    <li>SNAP Participation Rate</li>
+                </ul>
+            </li>
+            <li>Applied the <strong>Elbow Method</strong> to determine the optimal number of clusters
+                <ul>
+                    <li>Found that <strong>K = 4</strong> minimized within-cluster inertia before flattening</li>
+                </ul>
+            </li>
+            <li>Interpreted each cluster:
+                <ul>
+                    <li><strong>Cluster 0</strong>: High COLI & wage, moderate SNAP – relatively stable</li>
+                    <li><strong>Cluster 1</strong>: Low COLI & wage, high SNAP – high welfare dependency</li>
+                    <li><strong>Cluster 2</strong>: High COLI, wage, SNAP – economically high-risk</li>
+                    <li><strong>Cluster 3</strong>: All indicators low – potentially underserved in welfare access</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>📊 Key Findings</h3>
+
+        <h4>🔸 Wage Inadequacy</h4>
+        <ul>
+            <li>None of the 50 states had a Living Wage Affordability Index (LWAI) of 1.0</li>
+            <li>86% of states had LWAI &lt; 0.70</li>
+            <li>States like Hawaii, New York, and New Hampshire showed the <strong>largest wage gaps</strong></li>
+        </ul>
+
+        <h4>🔸 SNAP & Policy Insight</h4>
+        <ul>
+            <li>States like Alaska and Vermont provide &gt;$300/month in SNAP, others &lt; $150</li>
+            <li>SNAP participation varies from 7% to 20%+ (e.g., New Mexico highest)</li>
+            <li>No significant statistical relationship between COLI and SNAP participation (p &gt; 0.05)</li>
+            <li>→ Highlights the <strong>importance of policy accessibility and design</strong></li>
+        </ul>
+
+        <h4>🔸 Clustering (K = 4)</h4>
+        <ul>
+            <li><strong>Cluster 0</strong>: High COLI & living wage, moderate SNAP – relatively stable</li>
+            <li><strong>Cluster 1</strong>: Low COLI & wage, high SNAP – high welfare dependency</li>
+            <li><strong>Cluster 2</strong>: High COLI, wage, and SNAP – high economic risk</li>
+            <li><strong>Cluster 3</strong>: All indicators low – possibly underserved in welfare access</li>
+        </ul>
+
+        <h3>💡 Insight</h3>
+        <ul>
+            <li>Even in high-COLI states, SNAP participation was not always higher, indicating that institutional design
+                and access play
+                a larger role than just economic conditions.</li>
+            <li>A systemic issue exists across the U.S., where minimum wages are insufficient to meet basic living costs
+                in most states.
+                Structural policy reform is needed.</li>
+        </ul>
+
+        <h3>🙋‍♀️ My Contribution</h3>
+        <ul>
+            <li>Collected and cleaned datasets using pandas</li>
+            <li>Created and engineered key indicators (Wage Gap, LWAI, SNAP metrics)</li>
+            <li>Performed full EDA, regression analysis, t-tests, and K-Means clustering</li>
+            <li>Wrote the entire Python codebase and produced visualizations</li>
+            <li>Contributed to both the presentation and final report writing</li>
+        </ul>
+    </section>
+</body>
+
+</html>

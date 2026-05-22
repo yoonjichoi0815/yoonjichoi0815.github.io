@@ -1,0 +1,140 @@
+<!-- project-olist.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olist E-Commerce Return Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 공통 헤더 (index.html과 동일하게 복사) -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Yoonji's Portfolio</h1>
+            <nav class="navbar">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#skill" class="nav-button">Skills</a>
+                <a href="index.html#projects" class="nav-button">Projects</a>
+                <a href="index.html#experience" class="nav-button">Experience</a>
+                <a href="index.html#contact" class="nav-button">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-detail">
+        <h2>Olist E-Commerce Return Prediction</h2>
+
+        <p><strong>Term:</strong> March 2024 - May 2024 (Personal Project)</p>
+        <p><strong>Dataset:</strong> Olist E-Commerce Dataset from Kaggle</p>
+        <p><strong>Tools:</strong> Python (Pandas, NumPy, Seaborn, Scikit-learn, imbalanced-learn), Jupyter Notebook,
+            Statsmodels</p>
+
+        <h3>🎯 Objective</h3>
+        <p>Analyze the relationship between customer review scores and product return rates using real e-commerce data,
+            and build a
+            predictive model for return behavior.</p>
+
+        <h3>❓ Key Research Questions</h3>
+        <p>1. Are lower review scores associated with higher return rates?</p>
+        <p>2. Do certain product categories have higher return rates?</p>
+
+        <h3>📈 Analysis Process</h3>
+        <h3>📊 Section 1: Data Analysis & Predictive Modeling</h3>
+        <h4>🔹 Collect Data</h4>
+        <ul>
+            <li>Download dataset from Kaggle, set path, and load CSV file</li>
+        </ul>
+
+        <h4>🔹 Data Preprocessing</h4>
+        <ul>
+            <li>Merged 5+ CSV files into unified analysis dataset</li>
+            <li>Select necessary columns from each dataframe (make it different from the original dataframe that read
+                from csv file)</li>
+            <li>Feature engineering (e.g., created <code>is_returned</code>, <code>delivery_late</code>,
+                <code>total_price</code>)
+            </li>
+        </ul>
+
+        <h4>🔹 Exploratory Data Analysis (EDA)</h4>
+        <ul>
+            <li>Visualization - Histogram (Return rate by review score)</li>
+            <li>Return rate by review score</li>
+            <li>Correlation heatmaps (<code>review_score</code>, <code>return_status</code>)</li>
+        </ul>
+
+        <h4>🔹 Statistical Analysis</h4>
+        <ul>
+            <li><strong>T-test:</strong> Low vs high score groups → Significant difference</li>
+            <li><strong>ANOVA:</strong> Return rate by product category</li>
+            <li><strong>Chi-square test:</strong> Category ↔ Return independence</li>
+            <li><strong>Regression:</strong> Review score & delivery lateness predict return (Simple & multiple linear
+                regression)</li>
+        </ul>
+
+        <h4>🔹 Modeling</h4>
+        <ul>
+            <li><strong>Classification:
+                    <ul>
+                        <li>Logistic Regression → initial baseline</li>
+                        <li>Random Forest Classifier with SMOTE used for class imbalance</li>
+                    </ul>
+            </li>
+        </ul>
+
+        <h3>💬 Section 2: Review Text Analysis (NLP)</h3>
+        <h4>🔹 Review Text NLP</h4>
+        <ul>
+            <li><strong>Pipeline:
+                    <ul>
+                        <li>Translated reviews from Portuguese to English using Google Translate API</li>
+                        <li>Cleaned and tokenized text</li>
+                        <li>TF-IDF vectorization</li>
+                        <li>Combined with structured data</li>
+                        <li>Trained classifier (Random Forest)</li>
+                    </ul>
+            </li>
+            <li><strong>Result:
+                    <ul>
+                        <li>NLP-based model slightly improved recall</li>
+                        <li>Many reviews were missing → data sparsity challenge</li>
+                    </ul>
+            </li>
+        </ul>
+
+        <h3>🌐 Section 3: Streamlit Web App + SHAP Visualization</h3>
+        <h4>🔹 Review Text NLP</h4>
+        <ul>
+            <li><strong>Features:
+                    <ul>
+                        <li>User inputs: Review score, delivery days, product price</li>
+                        <li>Outputs: Predicted return probability</li>
+                        <li>SHAP explanation for feature importance</li>
+                    </ul>
+            </li>
+        </ul>
+
+        <h3>💡 Insight</h3>
+        <ul>
+            <li>By conducting Linear Regression, the variable <code>review_score</code> doesn’t fully explain the
+                relationship with
+                <code>return_status</code> →
+                Use Multiple Linear Regression to analyze additional variables that effect <code>return_status</code>
+            </li>
+            <li>From Logistic Regression, it doesn’t fully explain the model because of imbalanced data. → Use SMOTE
+                oversampling to use
+                additional sample data, and conduct Random Forest.</li>
+        </ul>
+
+        <h3>🙋‍♀️ My Contribution</h3>
+        <ul>
+            <li>End-to-end data analysis from raw dataset to model building</li>
+            <li>Applied statistical testing to support hypotheses</li>
+            <li>Built interpretable machine learning models</li>
+        </ul>
+    </section>
+</body>
+
+</html>
