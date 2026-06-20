@@ -545,6 +545,12 @@ ol {
   margin-bottom: 0.75rem;
 }
 
+.exp-advisor {
+  font-size: 0.875rem;
+  color: #475569;
+  margin-bottom: 0.75rem;
+}
+
 .exp-bullets {
   list-style: disc;
   padding-left: 1.25rem;
