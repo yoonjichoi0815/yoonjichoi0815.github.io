@@ -167,6 +167,15 @@ ol {
   margin: 0;
 }
 
+.prof-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.prof-link:hover {
+  text-decoration: underline;
+}
+
 /* ============================================================
    PROFILE CARD (right panel on homepage)
    ============================================================ */
